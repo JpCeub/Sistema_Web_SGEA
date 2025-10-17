@@ -52,10 +52,16 @@ Popular o bando de dados:
 python populate.py
 
 Apos a execução do comando:
-- Cria um usuário organizador (organizador@sgea.com, senha 123456)
+- Cria um usuário organizador (organizador@sgea.com, senha Org123456)
 - Apaga eventos antigos
 - insere 4 eventos novos (um de cada tipo)
+  ° para logar com o organizador:
+  perfil: organizador
+  senha: Org123456
 
+  ° para logar com um usuario aluno:
+    perfil: joaop
+    senha:JPrc120364
 Acesse no navegador:
 http://127.0.0.1:8000/
 
