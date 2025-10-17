@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if messages %}
+  <ul>
+    {% for message in messages %}
+      <li class="{{ message.tags }}">{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<h2>Certificado</h2>
+{% if certificado %}
+  <p>Certificado emitido para {{ certificado.usuario }} no evento {{ evento.titulo }} em {{ certificado.data_emissao }}</p>
+{% else %}
+  <p>Não foi possível emitir: usuário não está inscrito neste evento.</p>
+{% endif %}
+{% endblock %}

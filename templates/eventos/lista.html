@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if messages %}
+  <ul>
+    {% for message in messages %}
+      <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{ message }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}
+
+<h2>Eventos</h2>
+<a href="{% url 'eventos:criar' %}">Criar evento</a>
+<ul>
+  {% for e in eventos %}
+    <li><a href="{% url 'eventos:detalhe' e.id %}">{{ e.titulo }} — {{ e.tipo }} — {{ e.data_inicio }}</a></li>
+  {% empty %}
+    <li>Nenhum evento.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

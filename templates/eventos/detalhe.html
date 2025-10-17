@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>{{ evento.titulo }}</h2>
+<p><strong>Tipo:</strong> {{ evento.tipo }}</p>
+<p><strong>Data:</strong> {{ evento.data_inicio }} - {{ evento.data_fim }}</p>
+<p><strong>Local:</strong> {{ evento.local }}</p>
+<p><strong>Organizador:</strong> {{ evento.organizador }}</p>
+<p><strong>Vagas restantes:</strong> {{ evento.vagas }}</p>
+<a href="{% url 'inscricoes:inscrever' evento.id %}">Inscrever-se</a>
+
+<hr>
+
+{% if user == evento.organizador %}
+  <h3>Gerenciar inscrições</h3>
+  {% if inscritos %}
+    <ul>
+      {% for insc in inscritos %}
+        <li>
+          {{ insc.usuario.get_full_name|default:insc.usuario.username }}
+          <a href="{% url 'certificados:emitir' evento.id insc.usuario.id %}">
+            Gerar certificado
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>Nenhum inscrito ainda.</p>
+  {% endif %}
+{% endif %}
+{% endblock %}

@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+{% if user.is_authenticated %}
+  <h2>Bem-vindo(a) de volta, {{ user.first_name|default:user.username }}!</h2>
+{% else %}
+  <h2>Seja Bem-vindo(a) ao SGEA</h2>
+{% endif %}
+
+{% if user.is_authenticated %}
+    <a href="{% url 'certificados:meus_certificados' %}">Meus Certificados</a> |
+{% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Meus Certificados</h2>
+{% if certificados %}
+    <ul>
+        {% for cert in certificados %}
+            <li>{{ cert.evento.titulo }} – Emitido em {{ cert.data_emissao|date:"d/m/Y" }}</li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>Você ainda não possui certificados emitidos.</p>
+{% endif %}
+{% endblock %}
